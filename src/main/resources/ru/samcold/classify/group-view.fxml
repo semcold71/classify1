@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="624.0" prefWidth="1156.0" styleClass="anchor-pane" stylesheets="@../styles/style.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.samcold.classify.controllers.OperatingModeController">
+    <children>
+        <Label layoutX="263.0" layoutY="173.0" styleClass="title-label" text="Группа классификации (режима работы) ПС"
+               AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+        <HBox layoutX="6.0" layoutY="38.0" prefHeight="524.0" prefWidth="1156.0" spacing="20.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <children>
+                <TitledPane fx:id="inputPane" animated="false" collapsible="false" prefHeight="497.0" prefWidth="560.0"
+                            text="Входные данные">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="536.0">
+                            <children>
+                                <VBox fx:id="input_vbox" layoutX="20.200000762939453" layoutY="11.199999809265137"
+                                      spacing="12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Номинальная грузоподъемность (Рном)"/>
+                                                <TextField fx:id="pNomTxt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Максимальная масса поднимаемого груза (Рmax)"/>
+                                                <TextField fx:id="pMaxTxt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Количество дней в году, когда работает кран (П)"/>
+                                                <TextField fx:id="daysCountTxt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Общая масса грузов, перегружаемых краном в день (Рдн)"/>
+                                                <TextField fx:id="pDayTxt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Фактический срок службы крана (Т)"/>
+                                                <TextField fx:id="ageTxt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <Line endX="547.0928955078125" endY="7.748603820800781E-7" startX="14.0"
+                                              style="-fx-stroke: derive(-fx-base, 35%);">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" top="10.0"/>
+                                            </VBox.margin>
+                                        </Line>
+                                        <Label text="В какой доле циклов производится подъем грузов, массой, %"/>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="до 0,25 Рном"/>
+                                                <TextField fx:id="p025Txt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="от 0,25 Рном до 0,5 Рном"/>
+                                                <TextField fx:id="p05Txt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="от 0,5 Рном до 0,75 Рном"/>
+                                                <TextField fx:id="p075Txt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="от 0,75 Рном до Рном"/>
+                                                <TextField fx:id="p1Txt" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="outputPane" animated="false" collapsible="false" prefHeight="497.0" prefWidth="576.0"
+                            text="Выходные данные">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="552.0" prefWidth="802.0">
+                            <children>
+                                <VBox prefHeight="200.0" prefWidth="100.0" spacing="12.0" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Общее количество грузов, перегружаемых краном за год (Рг)"/>
+                                                <TextField fx:id="pYearTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Средняя масса перемещаемого груза (Рср)"/>
+                                                <TextField fx:id="pMidTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Количество циклов за весь срок эксплуатации (N)"/>
+                                                <TextField fx:id="nTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Класс использования (U)"/>
+                                                <TextField fx:id="uTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Коэффициент нагружения (Кр)"/>
+                                                <TextField fx:id="kpTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="Режим нагружения (Q)"/>
+                                                <TextField fx:id="qTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <Line endX="565.1000366210938" startX="14.0"
+                                              style="-fx-stroke: derive(-fx-base, 35%);">
+                                            <VBox.margin>
+                                                <Insets bottom="20.0" top="20.0"/>
+                                            </VBox.margin>
+                                        </Line>
+                                        <Label text="Группа классификации (режим раоты) ПС:">
+                                            <VBox.margin>
+                                                <Insets bottom="20.0"/>
+                                            </VBox.margin>
+                                        </Label>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="по ИСО 4301"/>
+                                                <TextField fx:id="aIsoTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                        <FlowPane alignment="CENTER_RIGHT" hgap="10.0">
+                                            <children>
+                                                <Label text="по прежней классификации ГГТН"/>
+                                                <TextField fx:id="aGgtnTxt" editable="false" prefWidth="120.0"/>
+                                            </children>
+                                        </FlowPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+            </children>
+        </HBox>
+        <ButtonBar layoutX="305.0" layoutY="550.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <buttons>
+                <Button fx:id="calcBtn" mnemonicParsing="false" text="Рассчитать"/>
+                <Button fx:id="wordBtn" mnemonicParsing="false" text="Word"/>
+            </buttons>
+        </ButtonBar>
+        <Label id="warning-label" fx:id="warningLbl" text="Внесены изменения: Нажмите кнопку &quot;Рассчитать&quot;"
+               visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"/>
+    </children>
+</AnchorPane>
