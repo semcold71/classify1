@@ -64,7 +64,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>ru.samcold.classify/ru.samcold.classify.Application</mainClass>
+                            <mainClass>ru.samcold.classify/ru.samcold.classify.MyApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
