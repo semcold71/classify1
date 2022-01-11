@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="ror_root" prefHeight="624.0" prefWidth="1156.0" styleClass="anchor-pane"
+            stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.samcold.classify.controllers.RorController">
+    <children>
+        <Label styleClass="title-label" text="Остаточный ресурс ПС"/>
+        <HBox layoutX="96.0" layoutY="193.0" prefHeight="486.0" prefWidth="1156.0" spacing="20.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <children>
+                <TitledPane animated="false" collapsible="false" prefHeight="455.0" prefWidth="637.0"
+                            text="Входные данные">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <GridPane fx:id="input_grid" hgap="10.0" layoutX="20.4" layoutY="19.4" vgap="12.0"
+                                          AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                          AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="447.0"
+                                                           minWidth="10.0" prefWidth="375.0000009536743"/>
+                                        <ColumnConstraints hgrow="ALWAYS" maxWidth="401.0" minWidth="10.0"
+                                                           prefWidth="100.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <Label styleClass="title-label-2" text="Срок службы крана (М)"/>
+                                        <Label styleClass="title-label-2" text="Количество циклов в смену (n)"
+                                               GridPane.rowIndex="7"/>
+                                        <Label styleClass="title-label-2" text="Коэффициент (k)" GridPane.rowIndex="6"/>
+                                        <Label styleClass="title-label-2"
+                                               text="Номинальное значение характеристического числа (Nн)"
+                                               GridPane.rowIndex="3"/>
+                                        <Label styleClass="title-label-2"
+                                               text="Количество смен за весь срок эксплуатации (Т)"
+                                               GridPane.rowIndex="2"/>
+                                        <Label styleClass="title-label-2"
+                                               text="Количество дней в году, когда работает кран (Д)"
+                                               GridPane.rowIndex="1"/>
+                                        <Label styleClass="title-label-2" text="Qср/Q" GridPane.rowIndex="8"/>
+                                        <TextField fx:id="ageTxt" editable="false" prefWidth="100.0"
+                                                   GridPane.columnIndex="1"/>
+                                        <TextField fx:id="daysTxt" editable="false" prefWidth="100.0"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                        <TextField fx:id="shiftsTxt" editable="false" prefWidth="100.0"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                        <TextField fx:id="nominalNTxt" editable="false" prefWidth="100.0"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                        <Line endX="205.03118896484375" endY="-0.20706593990325928"
+                                              startX="-275.46173095703125" startY="0.7929084897041321" styleClass="line"
+                                              GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="4"/>
+                                        <ComboBox fx:id="kFactorCbo" prefWidth="150.0" GridPane.columnIndex="1"
+                                                  GridPane.rowIndex="6"/>
+                                        <TextField fx:id="nFactorTxt" prefWidth="100.0" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="7"/>
+                                        <ComboBox fx:id="qFactorCbo" prefWidth="150.0" GridPane.columnIndex="1"
+                                                  GridPane.rowIndex="8"/>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+                <TitledPane animated="false" collapsible="false" prefHeight="455.0" prefWidth="625.0"
+                            text="Выходные данные">
+                    <content>
+                        <AnchorPane prefHeight="416.0" prefWidth="574.0">
+                            <children>
+                                <GridPane fx:id="output_grid" hgap="10.0" layoutX="20.4" layoutY="19.4" vgap="12.0"
+                                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" maxWidth="452.0" minWidth="10.0"
+                                                           prefWidth="404.0"/>
+                                        <ColumnConstraints hgrow="NEVER" maxWidth="401.0" minWidth="10.0"
+                                                           prefWidth="100.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0"
+                                                        vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <Label styleClass="title-label-2"
+                                               text="Число циклов, выполненных от начала эксплуатации, Ст"/>
+                                        <Label styleClass="title-label-2" text="лет (Сг)" GridPane.rowIndex="6"/>
+                                        <Label styleClass="title-label-2" text="ОСТОЧНЫЙ РЕСУРС:"
+                                               GridPane.rowIndex="4"/>
+                                        <Label styleClass="title-label-2"
+                                               text="Текущее значение характеристического числа, Nт"
+                                               GridPane.rowIndex="1"/>
+                                        <TextField fx:id="cyclesTxt" editable="false" prefWidth="100.0"
+                                                   GridPane.columnIndex="1"/>
+                                        <TextField fx:id="currentNTxt" editable="false" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="1"/>
+                                        <Line endX="323.39898681640625" endY="3.378726005554199"
+                                              startX="-213.4939422607422" startY="2.378725290298462" styleClass="line"
+                                              GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2"/>
+                                        <Label styleClass="title-label-2" text="в циклах  (Сц)" GridPane.rowIndex="5"/>
+                                        <TextField fx:id="cyclesResourceTxt" editable="false" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="5"/>
+                                        <TextField fx:id="yearsResourceTxt" editable="false" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="6"/>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+            </children>
+        </HBox>
+        <ButtonBar layoutX="105.0" layoutY="559.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <buttons>
+                <Button fx:id="calcBtn" mnemonicParsing="false" text="Рассчитать"/>
+                <Button fx:id="wordBtn" mnemonicParsing="false" text="Word"/>
+            </buttons>
+        </ButtonBar>
+    </children>
+</AnchorPane>

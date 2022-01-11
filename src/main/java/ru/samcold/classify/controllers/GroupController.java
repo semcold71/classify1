@@ -1,23 +1,27 @@
 package ru.samcold.classify.controllers;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.ObservableList;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import javafx.util.StringConverter;
 import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationResult;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import ru.samcold.classify.MyApplication;
 import ru.samcold.classify.domain.Group;
+import ru.samcold.classify.domain.Proxy;
 import ru.samcold.classify.utils.Decor;
 import ru.samcold.classify.utils.FieldBinder;
 import ru.samcold.classify.utils.NumberValidator;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class GroupController {
@@ -94,20 +98,25 @@ public class GroupController {
     @FXML
     private Button wordBtn;
     // endregion
-    
+
+    private final BooleanProperty isCalculated = new SimpleBooleanProperty();
+
+    public BooleanProperty isCalculatedProperty() {
+        return isCalculated;
+    }
+
     @FXML
     void initialize(Group group) {
         this.group = group;
         // Test
-        group.pNomProperty().set(16.0);
-        group.pNomProperty().set(16);
-        group.pMaxProperty().set(16);
-        group.daysCountProperty().set(180);
-        group.pDayProperty().set(70);
-        group.ageProperty().set(30);
-        group.p025Property().set(50);
-        group.p05Property().set(30);
-        group.p075Property().set(15);
+        group.pNomProperty().set(6.3);
+        group.pMaxProperty().set(6.3);
+        group.daysCountProperty().set(100);
+        group.pDayProperty().set(10);
+        group.ageProperty().set(34);
+        group.p025Property().set(70);
+        group.p05Property().set(20);
+        group.p075Property().set(5);
         group.p1Property().set(5);
 
         initFields();
@@ -170,14 +179,31 @@ public class GroupController {
             }
 
             group.calculation();
+            writeToFile();
+            isCalculated.set(true);
         });
+    }
+
+    private void writeToFile() {
+        Proxy proxy = new Proxy(
+                group.ageProperty().get(),
+                group.daysCountProperty().get(),
+                group.aIsoProperty().get());
+
+        try {
+            FileOutputStream fos = new FileOutputStream("group.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(proxy);
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initValidators() {
 
         // set support
         ValidationSupport vs = new ValidationSupport();
-        //vs.setErrorDecorationEnabled(true);
 
         // number validation
         numberValidator.DoubleValidator(pNomTxt);
@@ -234,5 +260,14 @@ public class GroupController {
                         + group.p1Property().get();
 
         return res == 100;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupController{}";
     }
 }

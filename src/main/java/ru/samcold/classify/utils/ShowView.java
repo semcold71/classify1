@@ -29,8 +29,6 @@ public class ShowView {
 
     public void show(StackPane container, Parent parent) {
 
-        if (!container.getChildren().get(0).equals(parent)) {
-
             KeyValue kv;
 
             container.getChildren().add(parent);
@@ -44,6 +42,5 @@ public class ShowView {
             timeline.getKeyFrames().add(kf);
             timeline.setOnFinished(actionEvent -> container.getChildren().remove(0));
             timeline.play();
-        }
     }
 }

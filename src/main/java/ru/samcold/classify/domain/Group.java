@@ -183,4 +183,28 @@ public class Group {
         setAIso();
         setAGgtn();
     }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "pNom=" + pNom +
+                ", pMax=" + pMax +
+                ", daysCount=" + daysCount +
+                ", pDay=" + pDay +
+                ", age=" + age +
+                ", p025=" + p025 +
+                ", p05=" + p05 +
+                ", p075=" + p075 +
+                ", p1=" + p1 +
+                ", matrix=" + matrix +
+                ", pYear=" + pYear +
+                ", pMid=" + pMid +
+                ", n=" + n +
+                ", u=" + u +
+                ", kp=" + kp +
+                ", q=" + q +
+                ", aIso=" + aIso +
+                ", aGgtn=" + aGgtn +
+                '}';
+    }
 }

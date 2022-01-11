@@ -342,6 +342,10 @@
     -fx-effect: dropshadow(gaussian, #3F678E, 5, 0, 0, 0);
 }
 
+.combo-box .cell {
+    -fx-text-fill: #bbb;
+}
+
 .combo-box .arrow {
     -fx-background-color: #646464;
 }

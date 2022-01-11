@@ -9,35 +9,38 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="anchor-pane" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.samcold.classify.controllers.MainController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="anchor-pane" stylesheets="@styles/style.css"
+            xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.samcold.classify.controllers.MainController">
     <children>
-        <VBox prefHeight="479.0" prefWidth="1200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+        <VBox prefHeight="479.0" prefWidth="1200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0"
+              AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
             <children>
                 <ImageView fitHeight="68.0" fitWidth="1176.0">
                     <image>
-                        <Image url="@img/header.png" />
+                        <Image url="@img/header.png"/>
                     </image>
                 </ImageView>
                 <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-                        <Button fx:id="rorBtn" mnemonicParsing="false" text="Остаточный ресурс" />
-                        <Button fx:id="groupBtn" defaultButton="true" mnemonicParsing="false" text="Режим работы" />
+                        <Button fx:id="rorBtn" mnemonicParsing="false" text="Остаточный ресурс"/>
+                        <Button fx:id="groupBtn" defaultButton="true" mnemonicParsing="false" text="Режим работы"/>
                     </buttons>
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="10.0"/>
                     </VBox.margin>
                 </ButtonBar>
                 <StackPane id="container" fx:id="containerPane" prefHeight="644.0" prefWidth="1176.0">
                     <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="10.0"/>
                     </VBox.margin>
                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
                     <children>
                         <ImageView fitHeight="200.0" fitWidth="185.0">
                             <image>
-                                <Image url="@img/big-logo.png" />
+                                <Image url="@img/big-logo.png"/>
                             </image>
                         </ImageView>
                     </children>
