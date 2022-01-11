@@ -74,6 +74,7 @@ public class RorController {
         });
 
         initFields();
+        initButtons();
     }
 
     private void initFields() {
@@ -102,4 +103,9 @@ public class RorController {
 
         calcBtn.disableProperty().bind(vs.invalidProperty());
     }
+
+    private void initButtons() {
+        calcBtn.setOnAction(event -> ror.calculation());
+    }
+
 }
